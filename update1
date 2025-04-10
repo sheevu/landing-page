@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudarshan AI Labs - Digital Transformation for Local Businesses</title>
+    
+    <!-- SEO Metadata -->
+    <meta name="description" content="Sudarshan AI Labs helps local businesses undergo digital transformation with affordable solutions for online stores, digital marketing, and AI-powered growth.">
+    <meta name="keywords" content="local business, digital transformation, online stores, AI solutions, digital marketing">
+    <meta name="author" content="Sudarshan AI Labs">
+    
+    <!-- Social Sharing Metadata -->
+    <meta property="og:title" content="Sudarshan AI Labs - Digital Transformation for Local Businesses">
+    <meta property="og:description" content="Transform your local business with our affordable online store setups, AI solutions, and digital marketing.">
+    <meta property="og:image" content="https://example.com/path-to-social-sharing-image.jpg">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sudarshan AI Labs - Digital Transformation for Local Businesses">
+    <meta name="twitter:description" content="Transform your local business with Sudarshan AI Labs' cutting-edge solutions.">
+    <meta name="twitter:image" content="https://example.com/path-to-social-sharing-image.jpg">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <style>
+        /* Simplified and optimized animations for compatibility */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+        }
+
+        /* Additional fallback for unsupported properties */
+        .backdrop-supported .pricing-card {
+            background: rgba(10, 10, 26, 0.7);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars-container" id="stars" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-30 bg-black border-b border-gray-800" role="banner">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="/api/placeholder/60/60" alt="Sudarshan AI Labs Logo" class="h-12 w-12 mr-3">
+                    <h1 class="text-2xl font-bold gradient-text">Sudarshan AI Labs</h1>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <div class="language-selector">
+                        <label for="language-select" class="sr-only">Select Language</label>
+                        <select id="language-select" class="bg-transparent outline-none">
+                            <option value="en" selected>English</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                    </div>
+                </nav>
+                <div class="md:hidden">
+                    <button class="text-white focus:outline-none" aria-label="Open menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="galaxy-bg min-h-screen flex items-center relative overflow-hidden" role="region" aria-labelledby="hero-heading">
+        <div class="container mx-auto px-4 py-20 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <div class="max-w-lg">
+                    <h1 id="hero-heading" class="text-4xl md:text-6xl font-bold mb-4 golden-glow">Digital Kirana Kranti</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-8 gradient-text">Local Dukaan Online Powerhouse</h2>
+                    <p class="text-gray-300 text-lg mb-8">Get started with Sudarshan AI Labs - no hidden charges, just pure digital growth. 100% transparent pricing, fast setup, and growth-focused solutions.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#pricing" class="glow-button text-center py-3 px-8 rounded-lg font-semibold text-black">Launch Your Dukaan for ₹89 only!</a>
+                        <a href="#services" class="border border-yellow-500 py-3 px-8 rounded-lg font-semibold text-center hover:bg-yellow-500 hover:text-black transition-all">Explore Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="floating relative z-10" role="img" aria-label="Digital Store Illustration">
+                    <img src="/api/placeholder/500/400" alt="Illustration of a digital store setup" class="rounded-lg shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other sections should be similarly updated for accessibility and SEO as shown above -->
+</body>
+</html>
