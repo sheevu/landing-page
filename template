@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudarshan AI Labs - Digital Transformation for Local Businesses</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a1a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .galaxy-bg {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+            position: relative;
+        }
+        
+        .galaxy-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 3px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .golden-glow {
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        .nav-link:hover {
+            color: #FFD700;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card {
+            background: rgba(10, 10, 26, 0.7);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+        }
+        
+        .glow-button {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glow-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+        
+        .glow-button:hover::after {
+            left: 100%;
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        
+        .language-selector {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Create stars randomly */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Orbit animation for the planet */
+        .planet-orbit {
+            animation: orbit 30s linear infinite;
+        }
+        
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars-container" id="stars"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-30 bg-black border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="/api/placeholder/60/60" alt="Sudarshan AI Labs Logo" class="h-12 w-12 mr-3">
+                    <h1 class="text-2xl font-bold gradient-text">Sudarshan AI Labs</h1>
+                </div>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <div class="language-selector">
+                        <select class="bg-transparent outline-none">
+                            <option value="en" selected>English</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                    </div>
+                </nav>
+                
+                <div class="md:hidden">
+                    <button class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="galaxy-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="container mx-auto px-4 py-20 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <div class="max-w-lg">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 golden-glow">Digital Kirana Kranti</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-8 gradient-text">Local Dukaan Online Powerhouse</h2>
+                    <p class="text-gray-300 text-lg mb-8">Get started with Sudarshan AI Labs - no hidden charges, just pure digital growth. 100% transparent pricing, fast setup, and growth-focused solutions tailored for small businesses across India.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#pricing" class="glow-button text-center py-3 px-8 rounded-lg font-semibold text-black">Launch Your Dukaan for ₹89 only!</a>
+                        <a href="#services" class="border border-yellow-500 py-3 px-8 rounded-lg font-semibold text-center hover:bg-yellow-500 hover:text-black transition-all">Explore Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="floating relative z-10">
+                    <img src="/api/placeholder/500/400" alt="Digital Store Illustration" class="rounded-lg shadow-2xl">
+                </div>
+                <!-- Decorative elements -->
+                <div class="absolute -top-20 -right-20 w-40 h-40 bg-yellow-500 rounded-full filter blur-3xl opacity-20"></div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500 rounded-full filter blur-3xl opacity-20"></div>
+            </div>
+        </div>
+        
+        <!-- Animated elements -->
+        <div class="planet-orbit absolute top-20 right-20">
+            <div class="w-10 h-10 bg-blue-300 rounded-full shadow-lg"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-3xl md:text-4xl font-bold mb-16 gradient-text">Digital Swaraj for Small Businesses</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-gray-900 bg-opacity-50 p-8 rounded-xl border border-gray-800 hover:border-yellow-500 transition-all">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Lightning Fast Setup</h3>
+                    <p class="text-gray-400">Get your online store up and running in less than 24 hours with our streamlined process.</p>
+                </div>
+                
+                <div class="bg-gray-900 bg-opacity-50 p-8 rounded-xl border border-gray-800 hover:border-yellow-500 transition-all">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Transparent Pricing</h3>
+                    <p class="text-gray-400">No hidden fees, no surprises. Just a single payment of ₹89 to launch your digital store.</p>
+                </div>
+                
+                <div class="bg-gray-900 bg-opacity-50 p-8 rounded-xl border border-gray-800 hover:border-yellow-500 transition-all">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">AI-Powered Growth</h3>
+                    <p class="text-gray-400">Leverage cutting-edge AI technology to boost your sales and enhance customer experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 galaxy-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-3xl md:text-4xl font-bold mb-4 gradient-text">Ab Har Dukaan Hogi Online</h2>
+            <p class="text-center text-lg text-gray-300 mb-16 max-w-3xl mx-auto">Digital India Ka Naya Andaaz - Transforming local businesses with cutting-edge technology and affordable digital solutions.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Digital Store -->
+                <div class="bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden hover:shadow-xl transition-all border border-gray-800 hover:border-yellow-500">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Online Store Setup</h3>
+                        <p class="text-gray-400 mb-6">Transform your physical shop into a digital store. Sell your products online 24/7.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Mobile-friendly website</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Easy payment integration</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Inventory management</span>
+                            </li>
+                        </ul>
+                        <a href="#pricing" class="inline-block w-full py-2 px-4 bg-yellow-600 text-center rounded-lg hover:bg-yellow-500 transition-colors">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Digital Marketing -->
+                <div class="bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden hover:shadow-xl transition-all border border-gray-800 hover:border-yellow-500">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Digital Marketing</h3>
+                        <p class="text-gray-400 mb-6">Attract more customers with targeted digital marketing campaigns that work.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Social media management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>SEO optimization</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Content creation</span>
+                            </li>
+                        </ul>
+                        <a href="#pricing" class="inline-block w-full py-2 px-4 bg-yellow-600 text-center rounded-lg hover:bg-yellow-500 transition-colors">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- AI Solutions -->
+                <div class="bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden hover:shadow-xl transition-all border border-gray-800 hover:border-yellow-500">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">AI-Powered Solutions</h3>
+                        <p class="text-gray-400 mb-6">Leverage the power of AI to automate tasks and enhance customer experience.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Chatbot integration</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Personalized recommendations</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>Data analytics</span>
+                            </li>
+                        </ul>
+                        <a href="#pricing" class="inline-block w-full py-2 px-4 bg-yellow-600 text-center rounded-lg hover:bg-yellow-500 transition-colors">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-3xl md:text-4xl font-bold mb-16 gradient-text">Local Success Stories</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-gray-900 bg-opacity-30 p-4 rounded-lg">
+                    <img src="/api/placeholder/300/200" alt="Shop Owner Success" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Chai Wala to Digital Entrepreneur</h3>
+                    <p class="text-gray-400">Ramesh's chai stall now takes online orders, increasing his daily sales by 45%.</p>
+                </div>
+                
+                <div class="bg-gray-900 bg-opacity-30 p-4 rounded-lg">
+                    <img src="/api/placeholder/300/200" alt="Shop Owner Success" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Saree Shop Goes Global</h3>
+                    <p class="text-gray-400">Meena's local saree shop now ships internationally with our e-commerce solution.</p>
+                </div>
+                
+                <div class="bg-gray-900 bg-opacity-30 p-4 rounded-lg">
+                    <img src="/api/placeholder/300/200" alt="Shop Owner Success" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Kirana Store Revolution</h3>
+                    <p class="text-gray-400">Local grocery store owner Patel now manages inventory and orders through our app.</p>
+                </div>
+                
+                <div class="bg-gray-900 bg-opacity-30 p-4 rounded-lg">
+                    <img src="/api/placeholder/300/200" alt="Shop Owner Success" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Handicraft Goes Digital</h3>
+                    <p class="text-gray-400">Artisan Rajesh tripled his customer base with online presence and digital marketing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 galaxy-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-3xl md:text-4xl font-bold mb-4 gradient-text">Affordable Digital Solutions</h2>
+            <p class="text-center text-lg text-gray-300 mb-16 max-w-3xl mx-auto">Choose the perfect package for your business needs with our transparent pricing structure.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Starter Pack -->
+                <div class="pricing-card rounded-xl overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-yellow-600"></div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-semibold mb-2">Starter Pack</h3>
+                        <div class="text-3xl font-bold mb-2 text-yellow-500">₹2,500</div>
+                        <p class="text-gray-400 mb-6">For small dukandars & Instagram sellers</p>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500 mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>8 Branded Posts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500 mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>3 Reels</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 text-yellow-500 mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span>20
